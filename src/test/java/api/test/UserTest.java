@@ -61,12 +61,14 @@ public class UserTest {
 		
 		//for checking data after update
 		Response responseAfterUpdate=UserEndPoints.ReadeUser(this.userPayload.getUsername());
-		Assert.assertEquals(responseAfterUpdate.getStatusCode(), 200);		
+		Assert.assertEquals(responseAfterUpdate.getStatusCode(), 200);
+		response.then().log().all();
 	}
 	@Test(priority=4)
 	public void testDeleteUserByName() {
 		Response response=UserEndPoints.DeleteUser(this.userPayload.getUsername());
-		Assert.assertEquals(response.getStatusCode(),200);		
+		Assert.assertEquals(response.getStatusCode(),200);	
+		response.then().log().all();
 	}
 	
 	
